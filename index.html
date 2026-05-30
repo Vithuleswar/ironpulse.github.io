@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronPulse Fitness - Transform Your Body, Ignite Your Spirit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.20.0/tabler-icons.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .neon-lime { color: #ccff00; }
+        .neon-lime-bg { background-color: #ccff00; }
+        .neon-orange { color: #ff6600; }
+        .neon-orange-bg { background-color: #ff6600; }
+        .dark-bg { background-color: #0f172a; }
+        .darker-bg { background-color: #020617; }
+        .card-dark { background-color: #1e293b; border: 1px solid #334155; }
+        .btn-pulse { transition: all 0.3s ease; }
+        .btn-pulse:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(204, 255, 0, 0.3); }
+        .sticky-nav { position: sticky; top: 0; z-index: 50; }
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
+        .scroll-smooth { scroll-behavior: smooth; }
+        .success-message { animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .form-input { background-color: #1e293b; border: 1px solid #475569; color: #f1f5f9; padding: 12px 16px; border-radius: 8px; transition: all 0.3s; }
+        .form-input:focus { outline: none; border-color: #ccff00; box-shadow: 0 0 10px rgba(204, 255, 0, 0.2); }
+        .modal-overlay { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); }
+        .feature-icon { font-size: 48px; margin-bottom: 16px; }
+        .price-card { transition: all 0.3s ease; }
+        .price-card:hover { transform: translateY(-8px); }
+        .badge-popular { background-color: #ccff00; color: #020617; }
+    </style>
+</head>
+<body class="dark-bg text-slate-100 scroll-smooth">
+
+    <!-- Navigation Bar -->
+    <nav class="sticky-nav bg-slate-950 border-b border-slate-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-12 h-12 bg-gradient-to-br from-lime-400 to-orange-500 rounded-lg flex items-center justify-center">
+                        <i class="ti ti-bolt text-slate-950 text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold neon-lime hidden sm:inline">IronPulse</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#gallery" class="text-slate-300 hover:text-lime-400 transition">Gallery</a>
+                    <a href="#features" class="text-slate-300 hover:text-lime-400 transition">Features</a>
+                    <a href="#pricing" class="text-slate-300 hover:text-lime-400 transition">Pricing</a>
+                    <button onclick="scrollToForm()" class="neon-lime-bg text-slate-950 px-6 py-2 rounded-lg font-bold hover:bg-orange-500 transition btn-pulse">
+                        Join Now
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-lime-400 text-2xl">
+                    <i class="ti ti-menu-2"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 right-10 w-40 h-40 rounded-full border-2 border-lime-400"></div>
+            <div class="absolute bottom-20 left-10 w-60 h-60 rounded-full border-2 border-orange-500"></div>
+        </div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                <span class="text-white">Unleash Your</span><br>
+                <span class="neon-lime">IRON POWER</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto">
+                24/7 access to state-of-the-art equipment, elite trainers, and a community that fuels your transformation.
+            </p>
+            <button onclick="scrollToForm()" class="neon-lime-bg text-slate-950 px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-500 transition btn-pulse inline-block">
+                Start Your Transformation
+                <i class="ti ti-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Amenities & Features -->
+    <section id="features" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-16">
+                Why <span class="neon-lime">Choose IronPulse</span>?
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card-dark rounded-xl p-8 text-center hover:shadow-lg transition">
+                    <div class="feature-icon neon-lime">
+                        <i class="ti ti-24-hours"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">24/7 Access</h3>
+                    <p class="text-slate-400">Train whenever you want, day or night. Your schedule, your rules.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card-dark rounded-xl p-8 text-center hover:shadow-lg transition">
+                    <div class="feature-icon neon-orange">
+                        <i class="ti ti-user"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Elite Trainers</h3>
+                    <p class="text-slate-400">Certified professionals ready to guide you to peak performance.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card-dark rounded-xl p-8 text-center hover:shadow-lg transition">
+                    <div class="feature-icon neon-lime">
+                        <i class="ti ti-dumbbell"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Modern Equipment</h3>
+                    <p class="text-slate-400">Cutting-edge machines and free weights for every fitness level.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="card-dark rounded-xl p-8 text-center hover:shadow-lg transition">
+                    <div class="feature-icon neon-orange">
+                        <i class="ti ti-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Group Classes</h3>
+                    <p class="text-slate-400">High-energy classes: HIIT, Spin, Yoga, Boxing, and more.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="card-dark rounded-xl p-8 text-center hover:shadow-lg transition">
+                    <div class="feature-icon neon-lime">
+                        <i class="ti ti-spa"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Recovery Zones</h3>
+                    <p class="text-slate-400">Sauna, steam room, and massage chairs for post-workout bliss.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="card-dark rounded-xl p-8 text-center hover:shadow-lg transition">
+                    <div class="feature-icon neon-orange">
+                        <i class="ti ti-shield-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Premium Safety</h3>
+                    <p class="text-slate-400">Secure facilities, clean equipment, and expert supervision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4">
+                Tour Our <span class="neon-lime">State-of-the-Art Facility</span>
+            </h2>
+            <p class="text-center text-slate-400 mb-16 text-lg">Experience the IronPulse difference with cutting-edge equipment and premium amenities</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="relative h-64 md:h-72 rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop" alt="Modern Gym Equipment" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end justify-start p-6">
+                        <h3 class="text-white font-bold text-lg">Premium Equipment</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="relative h-64 md:h-72 rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop" alt="Group Fitness Classes" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end justify-start p-6">
+                        <h3 class="text-white font-bold text-lg">Group Classes</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="relative h-64 md:h-72 rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1549576528-b2c4b6b7ae6f?w=800&h=600&fit=crop" alt="Cardio Zone" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end justify-start p-6">
+                        <h3 class="text-white font-bold text-lg">Cardio Zone</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="relative h-64 md:h-72 rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop" alt="Strength Training" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end justify-start p-6">
+                        <h3 class="text-white font-bold text-lg">Strength Training</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="relative h-64 md:h-72 rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&h=600&fit=crop" alt="Yoga & Flexibility" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end justify-start p-6">
+                        <h3 class="text-white font-bold text-lg">Yoga & Flexibility</h3>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="relative h-64 md:h-72 rounded-xl overflow-hidden cursor-pointer group" onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7361c9c76ee8?w=800&h=600&fit=crop" alt="Lounge Area" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end justify-start p-6">
+                        <h3 class="text-white font-bold text-lg">Recovery Lounge</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 modal-overlay z-50 hidden flex items-center justify-center p-4" onclick="closeLightbox(event)">
+        <div class="relative max-w-4xl w-full bg-slate-950 rounded-xl overflow-hidden" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-lg bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-lime-400 transition">
+                <i class="ti ti-x text-2xl"></i>
+            </button>
+
+            <!-- Image -->
+            <img id="lightboxImage" src="" alt="Gallery Image" class="w-full h-auto max-h-96 object-contain">
+
+            <!-- Caption -->
+            <div class="p-6 text-center">
+                <h3 id="lightboxCaption" class="text-2xl font-bold text-white mb-2"></h3>
+                <p id="lightboxDescription" class="text-slate-400"></p>
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex items-center justify-center gap-4 pb-6">
+                <button onclick="previousImage()" class="w-12 h-12 rounded-lg border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-slate-950 transition flex items-center justify-center">
+                    <i class="ti ti-chevron-left text-xl"></i>
+                </button>
+                <span id="imageCounter" class="text-slate-400 font-bold">1 / 6</span>
+                <button onclick="nextImage()" class="w-12 h-12 rounded-lg border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-slate-950 transition flex items-center justify-center">
+                    <i class="ti ti-chevron-right text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-4 dark-bg">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-16">
+                Choose Your <span class="neon-lime">Power Level</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Base Tier -->
+                <div class="card-dark rounded-xl p-8 price-card">
+                    <h3 class="text-2xl font-bold mb-2">Base Tier</h3>
+                    <p class="text-slate-400 mb-6">Perfect starter plan</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black neon-lime">$29</span>
+                        <span class="text-slate-400">/month</span>
+                    </div>
+                    <button onclick="selectPlan('Base Tier - $29/mo')" class="w-full border-2 border-lime-400 text-lime-400 py-3 rounded-lg font-bold hover:bg-lime-400 hover:text-slate-950 transition mb-6">
+                        Choose Plan
+                    </button>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Gym access 24/7</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Locker rooms</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Basic equipment</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-500">
+                            <i class="ti ti-x text-slate-500 text-lg"></i>
+                            <span>Group classes</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Peak Tier (Most Popular) -->
+                <div class="card-dark rounded-xl p-8 price-card border-2 border-lime-400 transform md:scale-105">
+                    <div class="badge-popular rounded-full px-4 py-1 inline-block text-sm font-bold mb-4">
+                        Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Peak Tier</h3>
+                    <p class="text-slate-400 mb-6">Our best-selling plan</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black neon-lime">$49</span>
+                        <span class="text-slate-400">/month</span>
+                    </div>
+                    <button onclick="selectPlan('Peak Tier - $49/mo')" class="w-full neon-lime-bg text-slate-950 py-3 rounded-lg font-bold hover:bg-orange-500 transition mb-6">
+                        Choose Plan
+                    </button>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Everything in Base</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Unlimited group classes</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>1 guest pass/month</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Water & towels included</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VIP Tier -->
+                <div class="card-dark rounded-xl p-8 price-card">
+                    <h3 class="text-2xl font-bold mb-2">VIP Tier</h3>
+                    <p class="text-slate-400 mb-6">Ultimate experience</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black neon-orange">$79</span>
+                        <span class="text-slate-400">/month</span>
+                    </div>
+                    <button onclick="selectPlan('VIP Tier - $79/mo')" class="w-full border-2 border-orange-500 text-orange-500 py-3 rounded-lg font-bold hover:bg-orange-500 hover:text-slate-950 transition mb-6">
+                        Choose Plan
+                    </button>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Everything in Peak</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>4 personal training sessions/mo</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Tanning & massage chair access</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ti ti-check text-lime-400 text-lg"></i>
+                            <span>Priority booking</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section id="registration" class="py-20 px-4 darker-bg">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-4">
+                <span class="neon-lime">Begin</span> Your Journey
+            </h2>
+            <p class="text-center text-slate-400 mb-12">Join thousands of transformations happening at IronPulse</p>
+            
+            <div id="formContainer" class="card-dark rounded-xl p-8">
+                <form id="registrationForm" onsubmit="submitForm(event)">
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold mb-2">Full Name</label>
+                        <input type="text" id="name" class="form-input w-full" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold mb-2">Email Address</label>
+                        <input type="email" id="email" class="form-input w-full" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold mb-2">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input w-full" placeholder="+1 (555) 123-4567" required>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-sm font-bold mb-2">Select Your Membership Tier</label>
+                        <select id="tier" class="form-input w-full" required>
+                            <option value="" disabled selected>Choose a membership...</option>
+                            <option value="Base Tier - $29/mo">Base Tier - $29/month</option>
+                            <option value="Peak Tier - $49/mo">Peak Tier - $49/month (Most Popular)</option>
+                            <option value="VIP Tier - $79/mo">VIP Tier - $79/month</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full neon-lime-bg text-slate-950 py-3 rounded-lg font-bold text-lg hover:bg-orange-500 transition btn-pulse">
+                        Submit Registration
+                    </button>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" style="display: none;" class="success-message">
+                    <div class="bg-lime-400 bg-opacity-20 border-2 border-lime-400 rounded-xl p-8 text-center">
+                        <div class="text-4xl mb-4">
+                            <i class="ti ti-check text-lime-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold neon-lime mb-2">Welcome to the Pack!</h3>
+                        <p class="text-slate-300 mb-4" id="successText"></p>
+                        <p class="text-sm text-slate-400">Check your email for next steps and get ready to transform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-lime-400 to-orange-500 rounded-lg flex items-center justify-center">
+                            <i class="ti ti-bolt text-slate-950"></i>
+                        </div>
+                        <span class="text-xl font-bold neon-lime">IronPulse</span>
+                    </div>
+                    <p class="text-slate-400">Transform your body. Ignite your spirit.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="#gallery" class="hover:text-lime-400 transition">Gallery</a></li>
+                        <li><a href="#features" class="hover:text-lime-400 transition">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-lime-400 transition">Pricing</a></li>
+                        <li><a href="#registration" class="hover:text-lime-400 transition">Join</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h4 class="font-bold mb-4">Hours</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm">
+                        <li>Mon-Fri: 5:00 AM - 11:00 PM</li>
+                        <li>Sat: 6:00 AM - 10:00 PM</li>
+                        <li>Sun: 7:00 AM - 9:00 PM</li>
+                        <li class="pt-2">24/7 for members</li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Social -->
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <p class="text-slate-400 text-sm mb-4">
+                        <i class="ti ti-map-pin"></i> 123 Fitness Ave, Power City, ST 12345
+                    </p>
+                    <p class="text-slate-400 text-sm mb-4">
+                        <i class="ti ti-phone"></i> (555) 123-4567
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-lg border-2 border-lime-400 flex items-center justify-center text-lime-400 hover:bg-lime-400 hover:text-slate-950 transition">
+                            <i class="ti ti-brand-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg border-2 border-lime-400 flex items-center justify-center text-lime-400 hover:bg-lime-400 hover:text-slate-950 transition">
+                            <i class="ti ti-brand-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg border-2 border-lime-400 flex items-center justify-center text-lime-400 hover:bg-lime-400 hover:text-slate-950 transition">
+                            <i class="ti ti-brand-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-slate-800 pt-8">
+                <p class="text-center text-slate-400 text-sm">
+                    © 2024 IronPulse Fitness. All rights reserved. | <a href="#" class="hover:text-lime-400">Privacy Policy</a> | <a href="#" class="hover:text-lime-400">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery data
+        const galleryItems = [
+            {
+                image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop',
+                caption: 'Premium Equipment',
+                description: 'State-of-the-art cardio and strength machines from top brands'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop',
+                caption: 'Group Fitness Classes',
+                description: 'High-energy group classes: HIIT, Spin, Boxing, Zumba & more'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1549576528-b2c4b6b7ae6f?w=800&h=600&fit=crop',
+                caption: 'Cardio Zone',
+                description: 'State-of-the-art treadmills, ellipticals, and rowing machines'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop',
+                caption: 'Strength Training',
+                description: 'Comprehensive free weights and cable machine selection'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&h=600&fit=crop',
+                caption: 'Yoga & Flexibility',
+                description: 'Dedicated studio space for yoga, pilates, and stretching'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1540497077202-7361c9c76ee8?w=800&h=600&fit=crop',
+                caption: 'Recovery Lounge',
+                description: 'Sauna, steam room, massage chairs, and relaxation area'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const item = galleryItems[index];
+            document.getElementById('lightboxImage').src = item.image;
+            document.getElementById('lightboxCaption').textContent = item.caption;
+            document.getElementById('lightboxDescription').textContent = item.description;
+            document.getElementById('imageCounter').textContent = `${index + 1} / ${galleryItems.length}`;
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event && event.target.id !== 'lightbox') return;
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('hidden')) return;
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') previousImage();
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        function scrollToForm() {
+            const formSection = document.getElementById('registration');
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function selectPlan(planName) {
+            const tierSelect = document.getElementById('tier');
+            tierSelect.value = planName;
+            scrollToForm();
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const tier = document.getElementById('tier').value;
+
+            // Hide form and show success message
+            document.getElementById('formContainer').style.display = 'none';
+            
+            const successMessage = document.getElementById('successMessage');
+            document.getElementById('successText').textContent = 
+                `${name}, you're all set! Your ${tier} membership is confirmed. We can't wait to see you transform with us.`;
+            successMessage.style.display = 'block';
+            
+            // Log data to console (in real app, send to server)
+            console.log('Registration Data:', { name, email, phone, tier });
+
+            // Reset form after 3 seconds (optional)
+            setTimeout(() => {
+                document.getElementById('registrationForm').reset();
+            }, 3000);
+        }
+
+        // Smooth scroll behavior for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
